@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>Details</title>
+</head>
+<body>
+	<p id="main">
+<form id="form1" onsubmit="init(); return false;">
+	Name:<br> <input type="text" id="name"><br>
+	Address:<br> <input type="text" id="addr"><br>
+	Phone Number:<br> <input type="text" id="pno"><br>
+	Email ID:<br> <input type="text" id="eid"><br>
+	Educational Qualification:<br> <input type="text" id="qual"><br>
+	Age:<br> <input type="text" id="age"><br>
+	<button type="submit">Submit</button>
+</form>
+</p>
+<script type="text/javascript">
+		class User
+		{
+			constructor(name,addr,pno,eid,qual,age)
+			{
+				this.uname = name;
+				this.address = addr;
+				this.phone = pno;
+				this.email = eid;
+				this.qualify = qual;
+				this.age = age;
+			};
+			display()
+			{
+				var out = "";
+				out += "<table border = 1>";
+				out += "<tr><th>User.Name:</th>";
+				out += "<td>";
+				out += this.uname;
+				out += "</td></tr>";
+				out += "<tr><th>User.Address:</th>";
+				out += "<td>";
+				out += this.address;
+				out += "</td></tr>";
+				out += "<tr><th>User.Phone Number:</th>";
+				out += "<td>";
+				out += this.phone;
+				out += "</td></tr>";
+				out += "<tr><th>User.EmailID:</th>";
+				out += "<td>";
+				out += this.email;
+				out += "</td></tr>";
+				out += "<tr><th>User.Educational Qualifications:</th>";
+				out += "<td>";
+				out += this.qualify;
+				out += "</td></tr>";
+				out += "<tr><th>User.Age:</th>";
+				out += "<td>";
+				out += this.age;
+				out += "</td></tr>";
+				out += "</table>";
+				// document.write(out);
+				return out;
+			};
+
+		};
+		function init()
+		{
+			usr = new User(document.getElementById("name").value,document.getElementById("addr").value,document.getElementById("pno").value,document.getElementById("eid").value,document.getElementById("qual").value,document.getElementById("age").value);
+			document.write(usr.display());
+			// document.getElementById("main").innerHTML = usr.display();
+			// usr.display();
+		};
+	</script>
+</body>
+</html>

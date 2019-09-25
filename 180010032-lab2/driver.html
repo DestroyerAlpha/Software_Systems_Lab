@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Driver's License Eligiility</title>
+</head>
+<body>
+<form id="elig" onsubmit="Eligibility()">
+	<script type="text/javascript">
+		function Eligibility()
+		{
+			age = document.forms["elig"]["age"].value;
+
+			if (age>=18 && age <=100)
+			{
+				congrats = "Congrats, you are eligible!";
+				document.write(congrats);
+			}
+			else
+			{
+				alert("You are ineligible!");
+			}
+
+		}
+	</script>
+	Age: <input type="text" name="age" required="True"><br>
+	<button form="elig" value="check" type="submit">Check Eligibility</button>
+</form>
+</body>
+</html>

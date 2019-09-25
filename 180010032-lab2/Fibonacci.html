@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fibonacci</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Fibonacci()
+		{
+			var a1 = 0;
+			var a2 = 1;
+			var n = document.forms["fibo"]["fib"].value;
+			var out = "" + a1 + " " + a2;
+			for (var i = 3; i <= n; i++)
+			{
+				var next = a1 + a2;
+				a1 = a2;
+				a2 = next;
+				out += " "+next;
+			}
+			document.getElementById("demo").innerHTML = "The first "+ n +" Fibonacci numbers are: " + out;
+			return false;
+		}
+	</script>
+	<form id="fibo" onsubmit="return Fibonacci()">
+		Enter a number n: <input type="text" name="fib">
+		<button type="submit">Enter</button>
+	</form>
+<p id="demo"></p>
+</body>
+</html>

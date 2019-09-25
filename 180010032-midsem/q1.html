@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>q1.html</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	var dict = new Object();
+	dict = {hey:"greetings"};
+</script>
+<script type="text/javascript">
+	str1 = "<form onsubmit=\"DictSearch();return false;\"";
+	str1 += "Word: <input type=\"text\" name=\"input\">";
+	str1 += "<input type=\"submit\" value=\"Submit\">";
+	str1 += "</form>";
+	var flag = 1;
+	function DictSearch()
+	{
+		var x = document.forms["search"]["input"].value;
+		//document.write(x);
+		for (var key in dict)
+		{
+			// document.write(x);
+			if(key==x)
+			{
+				document.write("Found meaning:\n");
+				document.write(dict[key]);
+				flag = 1;
+			}
+			else
+			{
+				flag = 0;
+			}
+		}
+		if(flag==0)
+		{
+			// document.write(1);
+			str = "<form onsubmit=\"addvalue();return false;\" name=\"add\"";
+			str += "Meaning:<input type=\"text\" name=\"meaning\">";
+			str += "<input type=\"text\" name= \"word\" value=\"";
+			str += x;
+			str += "\"";
+			str += "<input type=\"submit\" value=\"Submit\">";
+			str += "</form>";
+			document.getElementById("meaning1").innerHTML = str;
+		}
+	}
+
+	function addvalue()
+	{
+		document.write(1);
+		var word = document.forms["add"]["word"].value;
+		var meaning = document.forms["add"]["meaning"].value;
+		dict.word = meaning;
+		document.getElementById("form").innerHTML = str1;
+	}
+</script>
+<p id="form">
+<form onsubmit="DictSearch()" name="search">
+	Word:<input type="text" name="input">
+	<input type="submit" value="Submit">
+</form>
+</p>
+<p id="meaning1">
+</p>
+</body>
+
+</html>

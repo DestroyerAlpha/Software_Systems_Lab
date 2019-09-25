@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>Frequency Analysis</title>
+</head>
+<body>
+<form id="freq" onsubmit="Frequency(); return false;">
+	<input type="text" id="string">
+	<button type="submit">Enter</button>
+</form>
+<p id="kahoot"></p>
+<script type="text/javascript">
+		function Frequency()
+		{
+			function getFrequency(string)
+			{
+				    var freq = {};
+				    for (var i=0; i<string.length;i++) {
+				        var character = string.charAt(i);
+				        if (freq[character]) {
+				           freq[character]++;
+				        } else {
+				           freq[character] = 1;
+				        }
+				    }
+
+				    return freq;
+			};
+			var str = document.getElementById("freq").elements[0].value;
+			str = str.replace(/([^a-z0-9]+)/g, "");
+			freq = {};
+			freq = getFrequency(str);
+			var sortable = [];
+			for (var character in freq) {
+			    sortable.push([character, freq[character]]);
+			}
+
+			sortable.sort(function(a, b) {
+			    return b[1] - a[1];
+			});
+			var i = 0;
+			out = "Most frequent character(s): "
+			out += sortable[i][0];
+			while (sortable[i][1]==sortable[i+1][1])
+			{
+				out += ',';
+				out += sortable[i+1][0];
+				i+=1;
+			}
+			out += "<br>"
+			out += "Number of occurences: ";
+			out += sortable[0][1];
+			// document.write(out);
+			document.getElementById("kahoot").innerHTML = out;
+		};
+	</script>
+</body>
+</html>

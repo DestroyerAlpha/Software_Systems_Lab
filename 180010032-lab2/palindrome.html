@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Palindrome</title>
+</head>
+
+<body>
+	<form id="pal" onsubmit="Palindrome()">
+		Enter the string to verify: <input type="text" name="str">
+		<button type="submit" name="enter">Enter</button>
+	</form>
+	<script type="text/javascript">
+		function Palindrome()
+		{
+			var str = document.forms["pal"]["str"].value;
+			var re = /[\W_]/g;
+			new_str = str.toLowerCase().replace(re,'');
+			var rev = new_str.split('').reverse().join('');
+			if (new_str === rev)
+			{
+				document.write("This is a Palindrome!");
+			}
+			else
+			{
+				document.write("This is not a Palindrome");
+			}
+		}
+	</script>
+</body>
+
+</html>

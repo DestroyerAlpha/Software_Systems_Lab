@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title>GCD</title>
+	</head>
+	<body>
+		<script type = "text/javascript">
+					function gcd()
+					{
+						var x = document.getElementById("1").value;
+						var y = document.getElementById("2").value;
+						function gcd1(a,b)
+						{
+							    a = Math.abs(a);
+							    b = Math.abs(b);
+							    if (b > a)
+							    {
+							    	var temp = a;
+							    	a = b;
+							    	b = temp;
+							    }
+							    while (true)
+							    {
+							        if (b == 0)
+							        	return a;
+							       	a %= b;
+							        if (a == 0)
+							        	return b;
+							       	b %= a;
+							    }
+						}
+						document.write("GCD = " + gcd1(x,y));
+				   }
+		</script>
+		<form id="form" onsubmit = "gcd()">
+			Enter numbers:<br>
+			<input type = "text"  id = "1" placeholder = "Enter first number">
+			<input type = "text"  id = "2" placeholder = "Enter second number">
+			<input type = "submit">
+		</form>
+</body>
+</html>
